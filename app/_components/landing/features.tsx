@@ -157,7 +157,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, descriptio
                 >
                 <Icon className="w-6 h-6" style={{backgroundColor: 'var(--light-accent)' , color: 'var(--cta-primary)' }} />
                 </motion.div>
-                {index === 0 && <div className="rounded-full text-sm font-semibold text-slate-400 p-1 px-2 w-fit" style={{backgroundColor: 'var(--light-accent)'}}>
+                {index === 0 && <div className="rounded-full text-sm font-semibold text-slate-400 p-1 px-3 w-fit" style={{backgroundColor: 'var(--light-accent)'}}>
                     coming soon
                 </div>}
             </div>
