@@ -1,0 +1,169 @@
+"use client"
+import { Rocket, Code, Settings, Shield, Users, FileCode } from "lucide-react";
+import { motion, Variants } from "motion/react"
+
+
+const fadeInUp: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 20,
+        filter: 'blur(5px)',
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
+};
+
+const staggerContainer: Variants = {
+    // hidden: { opacity: 0 },
+    visible: {
+        // opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.3,
+            ease: "easeInOut"
+        },
+    },
+};
+
+interface FeatureCardProps {
+    icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+    title: string;
+    description: string;
+}
+
+const itemVariants: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 100,
+        filter: 'blur(10px)',
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+            duration: 0.3,
+            // delay: 0.4
+            // ease: [0,1,0.3,0.4]
+            // ease: "backIn",
+        },
+    },
+};
+
+const hoverVariants: Variants = {
+    hover: {
+      y: -8,
+      transition: {
+        duration: 0.3,
+        // ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+
+export function FeaturesCard() {
+
+    const features = [
+        {
+            icon: Rocket,
+            title: 'Fast Delivery',
+            description: 'Get your CAD models and designs delivered within 48 hours',
+        },
+        {
+            icon: Code,
+            title: 'Ready-to-Use Code',
+            description: 'Pre-tested Arduino and embedded code for your projects',
+        },
+        {
+            icon: Settings,
+            title: 'Custom Solutions',
+            description: 'Tailored CAD designs and solutions for your specific needs',
+        },
+        {
+            icon: Shield,
+            title: 'Quality Assurance',
+            description: 'Every design undergoes rigorous testing and validation',
+        },
+        {
+            icon: Users,
+            title: 'Expert Team',
+            description: 'Experienced CAD engineers and designers at your service',
+        },
+        {
+            icon: FileCode,
+            title: 'Documentation',
+            description: 'Comprehensive documentation and support materials',
+        },
+    ];
+
+
+    return (
+        <section className="py-20 px-6 bg-white">
+            <div className="container mx-auto">
+                <motion.h2
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="text-4xl font-bold text-center mb-16"
+                    style={{ color: 'var(--dark-primary)' }}
+                >
+                    Why Choose Us?
+                </motion.h2>
+
+                <motion.div
+                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView={"visible"}
+                    viewport={{ once: true }}
+                >
+                    {features.map((feature, index) => (
+                        <FeatureCard key={index} {...feature} />
+                    ))}
+                </motion.div>
+            </div>
+        </section>
+    )
+
+}
+
+
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
+    return (
+        <motion.div
+            variants={itemVariants}
+            // whileHover="hover"
+            className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl"
+        >
+            <motion.div
+                className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
+                style={{ backgroundColor: 'var(--light-accent)' }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+                <Icon className="w-6 h-6" style={{ color: 'var(--cta-primary)' }} />
+            </motion.div>
+            <motion.h3
+                className="text-lg font-semibold mb-2"
+                style={{ color: 'var(--dark-primary)' }}
+                variants={hoverVariants}
+            >
+                {title}
+            </motion.h3>
+            <motion.p
+                className="text-gray-600 text-sm"
+                variants={hoverVariants}
+            >
+                {description}
+            </motion.p>
+        </motion.div>
+    );
+};
