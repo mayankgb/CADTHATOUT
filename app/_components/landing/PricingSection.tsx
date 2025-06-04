@@ -105,7 +105,7 @@ export function PricingSection() {
             />
             <PricingCard
               title="CAE Analysis"
-              price="₹299"
+              price="₹299 onwards"
               features={[
                 "Stress analysis",
                 "Thermal analysis",
@@ -150,8 +150,9 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPop
         <div className="text-center mb-8">
           <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--dark-primary)' }}>{title}</h3>
           <div className="flex items-center justify-center gap-2">
-            <span className="text-4xl font-bold" style={{ color: 'var(--cta-primary)' }}>{price}</span>
-            {price !== 'Custom' && <span className="text-gray-500">/project</span>}
+            <span className="text-4xl font-bold" style={{ color: 'var(--cta-primary)' }}>{price.split(" ")[0]}</span>
+            <span className="text-xl" style={{ color: 'var(--cta-primary)' }}>{price.split(" ")[1]}</span>
+            {price !== '₹299 onwards' && <span className="text-gray-500">/project</span>}
           </div>
         </div>
   

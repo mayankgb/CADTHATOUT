@@ -36,6 +36,7 @@ interface FeatureCardProps {
     icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
     title: string;
     description: string;
+    index: number
 }
 
 const itemVariants: Variants = {
@@ -126,7 +127,7 @@ export function FeaturesCard() {
                     viewport={{ once: true }}
                 >
                     {features.map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
+                        <FeatureCard key={index} {...feature}  index={index}/>
                     ))}
                 </motion.div>
             </div>
@@ -136,21 +137,30 @@ export function FeaturesCard() {
 }
 
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description }) => {
+const FeatureCard: React.FC<FeatureCardProps> = ({ icon: Icon, title, description, index }) => {
     return (
         <motion.div
             variants={itemVariants}
             // whileHover="hover"
             className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl"
         >
-            <motion.div
-                className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                style={{ backgroundColor: 'var(--light-accent)' }}
+            <div
+                className={`${index === 0 ? "w-full justify-between" : "w-12 justify-center"} h-12 rounded-lg flex items-center bg-red-400 mb-4`}
+                style={{ backgroundColor: `${index === 0 ? "transparent": "var(--light-accent)"}` }}
+                
+            >
+                <motion.div 
+                className="h-12 w-12 flex items-center justify-center rounded-lg"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            >
-                <Icon className="w-6 h-6" style={{ color: 'var(--cta-primary)' }} />
-            </motion.div>
+                style={{ backgroundColor:" var(--light-accent)"}}
+                >
+                <Icon className="w-6 h-6" style={{backgroundColor: 'var(--light-accent)' , color: 'var(--cta-primary)' }} />
+                </motion.div>
+                {index === 0 && <div className="rounded-full text-sm font-semibold text-slate-400 p-1 px-2 w-fit" style={{backgroundColor: 'var(--light-accent)'}}>
+                    coming soon
+                </div>}
+            </div>
             <motion.h3
                 className="text-lg font-semibold mb-2"
                 style={{ color: 'var(--dark-primary)' }}
