@@ -1,5 +1,3 @@
-"use client"
-
 import { FeaturesCard } from './_components/landing/features';
 import { Header } from './_components/landing/header';
 import { Hero } from './_components/landing/HeroSection';
