@@ -87,7 +87,7 @@ export function PricingSection() {
                 "High precision CAD model",
                 "3D printing ready",
                 "Assembly instructions",
-                "Technical documentation"
+                "with components list"
               ]}
               isPopular
               buttonText="Buy now"
@@ -99,7 +99,7 @@ export function PricingSection() {
                 "Ready-to-run code",
                 "Multiple board support",
                 "Documentation",
-                "Basic support"
+                "Technical support"
               ]}
               buttonText="Buy Now"
             />
