@@ -1,5 +1,12 @@
 "use client"
 import {motion, Variants } from "motion/react"
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['100','200', '400', '500', '600', '700', '800', '900']
+})
+
 
 const buttonVariants: Variants = {
     hover: {
@@ -41,14 +48,14 @@ const buttonVariants: Variants = {
 export function Hero() {
     return (
 
-        <section className="pt-32 pb-20 px-6 h-screen relative overflow-hidden">
+        <section className={`pt-32 pb-20 px-6 h-screen relative overflow-hidden ${inter.className} `}>
         <div className="absolute h-screen inset-0 bg-gradient-to-br from-[var(--gradient-start)]/10 to-[var(--gradient-end)]/10" />
         <div className="container mx-auto flex flex-col h-full items-center justify-center text-center relative">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 leading-tight"
             style={{ color: 'var(--dark-primary)' }}
           >
             Your Ideas, Our CAD.
