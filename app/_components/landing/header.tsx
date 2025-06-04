@@ -57,7 +57,7 @@ export function Header() {
   }, []);
 
 
-  const navItems: string[] = ['Home', 'Services', 'Pre-Built Shop', 'Request Custom', 'About Us', 'Contact'];
+  const navItems: string[] = ['Home',  'Request Custom', 'Pre-Built Shop', 'About Us', 'Contact'];
 
     return(
         <motion.header

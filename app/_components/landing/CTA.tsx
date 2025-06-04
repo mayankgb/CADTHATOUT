@@ -80,7 +80,7 @@ export function CTA() {
               whileTap="tap"
               className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg"
             >
-              Contact Sales
+              Get professionals advice
             </motion.button>
           </motion.div>
         </div>

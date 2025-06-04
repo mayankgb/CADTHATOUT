@@ -35,9 +35,9 @@ export default function CADThatOut() {
         {/* Hero Section */}
         <Hero/>
         {/* Features Section */}
-        <FeaturesCard/>
-        {/* What We Do Section */}
         <WhatWeDo/>
+        {/* What We Do Section */}
+        <FeaturesCard/>
 
         {/* Pricing Section */}
         <PricingSection/>

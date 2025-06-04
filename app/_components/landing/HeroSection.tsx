@@ -53,7 +53,7 @@ export function Hero() {
           >
             Your Ideas, Our CAD.
             <br />
-            <span className="text-[var(--cta-primary)]">Drone & Design Solutions</span>
+            <span className="text-[var(--cta-primary)]">Design & Electronic routing</span>
           </motion.h1>
           
           <motion.p
@@ -62,8 +62,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Professional CAD services for drones, robotics, and custom designs. 
-            Ready-to-use models, code, and comprehensive analysis.
+            Expert CAD services for drones, robotics, and custom products — with advanced electronic routing, circuit design, and ready-to-use models.
           </motion.p>
           
           <motion.div

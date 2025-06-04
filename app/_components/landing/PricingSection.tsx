@@ -82,7 +82,7 @@ export function PricingSection() {
           >
             <PricingCard
               title="Drone Frame Design"
-              price="$199"
+              price="₹249"
               features={[
                 "High precision CAD model",
                 "3D printing ready",
@@ -90,11 +90,11 @@ export function PricingSection() {
                 "Technical documentation"
               ]}
               isPopular
-              buttonText="Get Started"
+              buttonText="Buy now"
             />
             <PricingCard
               title="Arduino Code Pack"
-              price="$49"
+              price="₹149"
               features={[
                 "Ready-to-run code",
                 "Multiple board support",
@@ -105,7 +105,7 @@ export function PricingSection() {
             />
             <PricingCard
               title="CAE Analysis"
-              price="$299"
+              price="₹299"
               features={[
                 "Stress analysis",
                 "Thermal analysis",
@@ -130,7 +130,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPop
           isPopular 
             ? 'bg-gradient-to-br from-[var(--light-accent)] to-white' 
             : 'border-gray-200 bg-white'
-        } hover:shadow-lg transition-all duration-300 relative`}
+        } hover:shadow-lg relative`}
         style={isPopular ? { borderColor: 'var(--cta-primary)' } : {}}
       >
         {isPopular && (

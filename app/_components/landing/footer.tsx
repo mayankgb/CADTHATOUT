@@ -22,7 +22,7 @@ export default function Footer() {
               </div>
               
               <div className="flex items-center space-x-4">
-                {['LinkedIn', 'GitHub', 'YouTube'].map((social: string, index: number) => (
+                {['Instagram', 'GitHub'].map((social: string, index: number) => (
                   <React.Fragment key={social}>
                     <motion.span 
                       className="text-gray-400 hover:text-white transition-colors cursor-pointer"
