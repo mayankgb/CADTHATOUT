@@ -43,8 +43,6 @@ const buttonVariants: Variants = {
     }
   };
   
-
-
 export function Hero() {
     return (
 
