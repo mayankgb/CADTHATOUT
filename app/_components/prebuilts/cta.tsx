@@ -2,8 +2,10 @@
 import { Button } from "@/components/ui/button"
 import { Cpu } from "lucide-react"
 import { motion } from "motion/react"
+import { useRouter } from "next/navigation"
 
 export default function CTA() {
+  const router = useRouter()
     return (
         <motion.div 
         initial={{ opacity: 0, y: 40 }}
@@ -16,7 +18,7 @@ export default function CTA() {
           Can't find what you're looking for? Our expert team can create custom CAD models, 
           circuit designs, and software solutions tailored to your specific requirements.
         </p>
-        <Button size="lg" variant="secondary" className="bg-white text-violet-600 hover:bg-gray-100 text-sm sm:text-base">
+        <Button onClick={() => router.push("/request-custom")} size="lg" variant="secondary" className="bg-white text-violet-600 hover:bg-gray-100 text-sm sm:text-base">
           <Cpu className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
           Request Custom Development
         </Button>

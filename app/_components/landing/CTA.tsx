@@ -1,5 +1,6 @@
 "use client"
 import { motion, Variants } from "motion/react"
+import { useRouter } from "next/navigation";
 
 const buttonVariants: Variants = {
     hover: {
@@ -38,6 +39,9 @@ const buttonVariants: Variants = {
   
 
 export function CTA() {
+
+  const router = useRouter()
+
     return (
         <section className="py-20 px-6 bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)]">
         <div className="container mx-auto text-center">
@@ -46,7 +50,7 @@ export function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true}}
-            className="text-4xl font-bold mb-8 text-white"
+            className="text-4xl font-bold mb-8 text-white"   
           >
             Ready to Start Your Project?
           </motion.h2>
@@ -55,7 +59,7 @@ export function CTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once : true}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-white/90 mb-12 max-w-2xl mx-auto"
+            className="text-xl text-white/90 mb-12 max-w-2xl mx-auto"       
           >
             Get professional CAD services, drone designs, and custom solutions for your next project.
           </motion.p>
@@ -71,6 +75,7 @@ export function CTA() {
               whileHover="hover"
               whileTap="tap"
               className="bg-white text-[var(--cta-primary)] px-8 py-4 rounded-full font-semibold text-lg"
+              onClick={() => router.push("/pre-built-shop")}
             >
               Get Started Now
             </motion.button>
@@ -79,6 +84,7 @@ export function CTA() {
               whileHover="hover"
               whileTap="tap"
               className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg"
+              onClick={() => router.push("/about")}
             >
               Get professionals advice
             </motion.button>

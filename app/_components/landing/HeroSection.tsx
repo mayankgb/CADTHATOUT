@@ -1,6 +1,7 @@
 "use client"
 import { motion, Variants } from "motion/react"
 import { Inter } from "next/font/google";
+import { useRouter } from "next/navigation";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,6 +45,9 @@ const secondaryButtonVariants: Variants = {
 };
 
 export function Hero() {
+
+  const router = useRouter()
+
   return (
     <section className={`pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-16 md:pb-20 px-4 sm:px-6 min-h-fit sm:min-h-screen relative ${inter.className}`}>
       <div className="absolute h-full inset-0 bg-gradient-to-br from-[var(--gradient-start)]/10 to-[var(--gradient-end)]/10" />
@@ -81,6 +85,7 @@ export function Hero() {
             whileTap="tap"
             className="w-full sm:w-auto text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-full font-semibold text-sm sm:text-lg transition-all duration-300"
             style={{ backgroundColor: 'var(--cta-primary)' }}
+            onClick={() => router.push("/pre-built-shop") }
           >
             Get Started
           </motion.button>
@@ -90,6 +95,7 @@ export function Hero() {
             whileHover="hover"
             whileTap="tap"
             className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-5 sm:px-8 py-2.5 sm:py-4 rounded-full font-semibold text-sm sm:text-lg transition-all duration-300"
+            onClick={() => router.push("/request-custom")}
           >
             View Pre-Built Models
           </motion.button>
