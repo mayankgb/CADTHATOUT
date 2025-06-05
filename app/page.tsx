@@ -1,5 +1,4 @@
 import { FeaturesCard } from './_components/landing/features';
-import { Header } from './_components/landing/header';
 import { Hero } from './_components/landing/HeroSection';
 import { WhatWeDo } from './_components/landing/whatwedosection';
 import { PricingSection } from './_components/landing/PricingSection';
@@ -30,8 +29,6 @@ export default function CADThatOut() {
     <>
       <style dangerouslySetInnerHTML={{ __html: colorStyles }} />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-        <Header/>
         {/* Hero Section */}
         <Hero/>
         {/* Features Section */}

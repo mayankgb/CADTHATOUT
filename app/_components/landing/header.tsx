@@ -1,6 +1,7 @@
 "use client"
 import { Square } from "lucide-react"
 import {motion, Variants} from "motion/react"
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 
@@ -57,35 +58,38 @@ export function Header() {
   }, []);
 
 
-  const navItems: string[] = ['Home',  'Request Custom', 'Pre-Built Shop', 'About Us', 'Contact'];
+  const navItems = [
+    { name: 'Home', href: '/' },
+    { name: 'Request Custom', href: '/request-custom' },
+    { name: 'Pre-Built Shop', href: '/pre-built-shop' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Logout', href: '/logout' }
+  ];
 
     return(
         <motion.header
         variants={headerVariants}
         initial="hidden"
         animate="visible"
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 ${
           isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
         }`}
       >
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div 
+            <Link
               className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
+              href={"/"}
             >
               <motion.div 
-                className="w-8 h-8 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'var(--cta-primary)' }}
+                className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#6315e3]"
                 whileHover={{ rotate: 180 }}
                 transition={{ duration: 0.3 }}
               >
                 <Square className="w-5 h-5 text-white" />
               </motion.div>
-              <span className="text-2xl font-bold" style={{ color: 'var(--dark-primary)' }}>CADTHATOUT</span>
-            </motion.div>
+              <span className="text-2xl select-none font-bold " >CADTHATOUT</span>
+            </Link>
             
             <motion.div 
               className="hidden md:flex items-center space-x-8"
@@ -93,10 +97,10 @@ export function Header() {
               initial="hidden"
               animate="visible"
             >
-              {navItems.map((item: string, index: number) => (
-                <motion.a
-                  key={item}
-                  href="#"
+              {navItems.map((item, index) => (
+                <Link href={item.href} key={index}>
+                <motion.div
+                  key={item.name}
                   variants={navItemVariants}
                   whileHover={{ 
                     y: -2, 
@@ -106,8 +110,9 @@ export function Header() {
                   className="text-gray-700 font-medium transition-colors duration-200"
                   style={{ '--hover-color': 'var(--cta-primary)' } as React.CSSProperties}
                 >
-                  {item}
-                </motion.a>
+                  {item.name}
+                </motion.div>
+                </Link>
               ))}
             </motion.div>
           </div>
