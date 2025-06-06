@@ -38,7 +38,7 @@ export async function middleware(req: NextRequest) {
     }
 
     if (pathname.startsWith("/logout")) {
-        return NextResponse.redirect("https://cadthatout.vercel.app")
+        return NextResponse.redirect("https://cadthatout.vercel.app/")
     }
 
     if (!token && pathname.startsWith("/signin")) {
