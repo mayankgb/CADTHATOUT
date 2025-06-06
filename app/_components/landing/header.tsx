@@ -43,6 +43,43 @@ const staggerContainer: Variants = {
   },
 };
 
+const mobileMenuVariants: Variants = {
+  closed: {
+    opacity: 0,
+    y: "-10%",
+    filter: "blur(100px)",
+    transition: {
+      staggerChildren: 0.1,
+      staggerDirection: -1,
+      // duration: 0.1,
+      when: "afterChildren",
+      // ease: [0.22, 1, 0.36, 1]
+      ease: "easeIn"
+    }
+  },
+  open: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      staggerChildren: 0.1,
+      // delayChildren: 0.1,
+      // duration: 0.1,
+      when: "beforeChildren",
+      ease: 'easeOut'
+    }
+  }
+};
+
+const mobileNavVariants : Variants  = {
+  closed :{
+    opacity: 0, y: -10, filter: "blur(5px)"
+  },
+  open : {
+    opacity: 1, y: 0, filter: "blur(0px)"
+  }
+}
+
 
 
 export function Header() {
@@ -66,26 +103,7 @@ export function Header() {
     { name: 'Logout', href: '/logout' }
   ];
 
-  const mobileMenuVariants: Variants = {
-    closed: {
-      opacity: 0,
-      y: "-100%",
-      filter: "blur(10px)",
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    },
-    open: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
+ 
 
   return (
     <motion.header
@@ -113,7 +131,7 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <motion.div
-            className="hidden md:flex items-center space-x-8"
+            className="hidden lg:flex items-center space-x-8"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
@@ -138,8 +156,9 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            variants={staggerContainer}
             whileTap={{ scale: 0.95 }}
           >
             <AnimatePresence mode="wait">
@@ -169,14 +188,14 @@ export function Header() {
         </div>
 
         {/* Mobile Navigation Menu */}
-        <AnimatePresence>
+        <AnimatePresence mode="popLayout">
           {isMobileMenuOpen && (
             <motion.div
               variants={mobileMenuVariants}
               initial="closed"
-              animate="open"
+              animate={ isMobileMenuOpen ? "open" : "closed"}
               exit="closed"
-              className="md:hidden fixed top-[72px] left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg"
+              className="lg:hidden fixed rounded-b-lg top-[72px] left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg"
             >
               <div className="container mx-auto px-6 py-4">
                 <div className="flex flex-col space-y-4">
@@ -187,13 +206,7 @@ export function Header() {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       <motion.div
-                        initial={{ opacity: 0, y: -10, filter: "blur(5px)" }}
-                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                        transition={{
-                          duration: 0.4,
-                          delay: index * 0.15,
-                          ease: [0.22, 1, 0.36, 1]
-                        }}
+                        variants={mobileNavVariants}
                         className="text-gray-700 font-medium py-2 hover:text-[#6315e3]"
                       >
                         {(item.name === "Logout" && session.status === "unauthenticated") ? "Login" : item.name}

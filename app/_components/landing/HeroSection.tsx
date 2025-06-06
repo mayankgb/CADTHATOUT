@@ -85,7 +85,7 @@ export function Hero() {
             whileTap="tap"
             className="w-full sm:w-auto text-white px-5 sm:px-8 py-2.5 sm:py-4 rounded-full font-semibold text-sm sm:text-lg transition-all duration-300"
             style={{ backgroundColor: 'var(--cta-primary)' }}
-            onClick={() => router.push("/pre-built-shop") }
+            onClick={() => router.push("/request-custom") }
           >
             Get Started
           </motion.button>
@@ -95,7 +95,7 @@ export function Hero() {
             whileHover="hover"
             whileTap="tap"
             className="w-full sm:w-auto border-2 border-gray-300 text-gray-700 px-5 sm:px-8 py-2.5 sm:py-4 rounded-full font-semibold text-sm sm:text-lg transition-all duration-300"
-            onClick={() => router.push("/request-custom")}
+            onClick={() => router.push("/pre-built-shop")}
           >
             View Pre-Built Models
           </motion.button>

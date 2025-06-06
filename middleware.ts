@@ -33,6 +33,9 @@ export async function middleware(req: NextRequest) {
         if(pathname.startsWith("/admin") && token.role !== "ADMIN" ) {
             return NextResponse.redirect("https://cadthatout.vercel.app/pre-built-shop")
         }
+        if (pathname.startsWith("/logout")) {
+            return NextResponse.redirect("https://cadthatout.vercel.app")
+        }
         return NextResponse.next()
     }
 
