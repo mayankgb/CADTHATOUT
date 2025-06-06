@@ -2,8 +2,9 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Box, CircuitBoard, Code, Bot, Zap } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
-import {cadModels, prebuiltCodes, circuits} from "./data"
+import {prebuiltCodes, circuits} from "./data"
 import ModelCard from "./modelCard"
+import { newCadModels } from "./newdata"
 
 const containerVariants  = {
     hidden: { opacity: 0 },
@@ -15,17 +16,7 @@ const containerVariants  = {
     }
   };
 
-  interface ModelItem {
-    id: number;
-    title: string;
-    description: string;
-    category: string;
-    rating: number;
-    downloads: number;
-    price: string;
-    image: string;
-    tags: string[];
-  }
+
 
 export default function Models () {
     return (
@@ -68,7 +59,7 @@ export default function Models () {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
             >
-              {cadModels.map((model: ModelItem) => (
+              {newCadModels.map((model) => (
                 <ModelCard key={model.id} model={model} icon={Bot} />
               ))}
             </motion.div>
@@ -81,7 +72,7 @@ export default function Models () {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
             >
-              {circuits.map((circuit: ModelItem) => (
+              {circuits.map((circuit) => (
                 <ModelCard key={circuit.id} model={circuit} icon={Zap} />
               ))}
             </motion.div>
@@ -94,7 +85,7 @@ export default function Models () {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
             >
-              {prebuiltCodes.map((code: ModelItem) => (
+              {prebuiltCodes.map((code) => (
                 <ModelCard key={code.id} model={code} icon={Code} />
               ))}
             </motion.div>
