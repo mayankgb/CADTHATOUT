@@ -1,6 +1,7 @@
 "use client"
 import { CheckCircle2 } from "lucide-react";
 import { motion, Variants } from "motion/react"
+import { useRouter } from "next/navigation";
 
 interface PricingCardProps {
     title: string;
@@ -122,6 +123,7 @@ export function PricingSection() {
 }
 
 const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPopular = false, buttonText }) => {
+  const router = useRouter()
     return (
       <motion.div
         whileHover={{ scale: 1.02 }}
@@ -169,6 +171,7 @@ const PricingCard: React.FC<PricingCardProps> = ({ title, price, features, isPop
           variants={isPopular ? buttonVariants : secondaryButtonVariants}
           whileHover="hover"
           whileTap="tap"
+          onClick={() => router.push("/request-custom")}
           className={`w-full py-3 rounded-full font-semibold transition-all duration-300 ${
             isPopular 
               ? 'bg-[var(--cta-primary)] text-white' 

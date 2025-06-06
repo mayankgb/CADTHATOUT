@@ -97,7 +97,7 @@ export default function ModelCard({ model, icon: Icon }: ModelCardProps) {
 
           <CardContent className="pb-2 gap-4 sm:pb-3">
 
-            <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
+            <div className="aspect-video rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg mb-3 sm:mb-4 flex items-center justify-center">
               <motion.div
                 animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
                 transition={{ duration: 0.3 }}
@@ -108,7 +108,7 @@ export default function ModelCard({ model, icon: Icon }: ModelCardProps) {
                   src={model.image}
                   alt="icon"
                 
-                  className="object-cover bg-trasparent max-h-full max-w-full"
+                  className="object-cover rounded-lg bg-trasparent  max-h-full max-w-full"
                 />
                 : <Icon className="h-8 w-8 sm:h-12 sm:w-12" />
                 }

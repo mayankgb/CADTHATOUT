@@ -1,7 +1,9 @@
 "use client"
 import { Square, Layers, Zap, Clock } from "lucide-react";
 import { motion, useAnimation, useInView, Variants } from "motion/react"
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
+
 
 const fadeInUpVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -60,6 +62,7 @@ interface ServiceCardProps {
 }
 
 export function WhatWeDo() {
+    const router = useRouter()
     return (
 
         <AnimatedSection className="py-20 px-6 bg-white">
@@ -116,6 +119,7 @@ export function WhatWeDo() {
                     viewport={{ once: true}}
                 >
                     <motion.button
+                    onClick={() => router.push("/pre-built-shop")} 
                         whileHover={{
                             scale: 1.05,
                             backgroundColor: 'var(--cta-primary)',

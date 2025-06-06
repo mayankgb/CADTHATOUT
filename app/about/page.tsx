@@ -2,31 +2,51 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Mail, MapPin, Linkedin, Twitter, Github, Star, Zap } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Twitter, Github, Star, Zap, Instagram } from 'lucide-react';
 import anshika from "@/public/anshika.jpeg"
 import Image, { StaticImageData } from 'next/image';
 import mradul from "@/public/mradul.jpeg"
+import Link from 'next/link';
 
 interface Founder {
     name: string;
     tag: 'founder' | 'co-founder';
     imageUrl: StaticImageData;
-    email: string;
+    email: string
+    linkedin: string,
+    instagram: string
 }
 
 const data: Founder[] = [{
     name: "Mradul Bisen",
     tag: "founder",
     imageUrl: mradul,
-    email: "mradulbisen@gmail.com",
+    email: "23bmc040@ietdavv.edu.in",
+    linkedin: "https://www.linkedin.com/in/mradul-bisen-008147289/",
+    instagram: "http://instagram.com/chai_with_wifi/profilecard/"
 }, {
     name: "Anshika Agarwal",
     tag: "co-founder",
-    imageUrl:anshika ,
-    email: "anshika@gmail.com"
+    imageUrl: anshika,
+    email: "23btc106@ietdavv.edu.in",
+    linkedin: "",
+    instagram: "https://www.instagram.com/anshika__agrawal01_/"
 }];
 
 const About: React.FC = () => {
+
+    const handleClick = () => {
+        const subject = encodeURIComponent("Request for Custom Model");
+        const body = encodeURIComponent("Hi,\n\nI would like to request a custom model. Here are the details:\n\n");
+
+        const mailtoLink = `mailto:23bmc040@ietdavv.edu.in?subject=${subject}&body=${body}`;
+
+        // Open email client
+        window.location.href = mailtoLink;
+
+
+    }
+
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -41,8 +61,8 @@ const About: React.FC = () => {
 
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 50 },
-        visible: { 
-            opacity: 1, 
+        visible: {
+            opacity: 1,
             y: 0,
             transition: {
                 duration: 0.8,
@@ -53,9 +73,9 @@ const About: React.FC = () => {
 
     const cardVariants: Variants = {
         hidden: { opacity: 0, scale: 0.8, rotateY: -15 },
-        visible: { 
-            opacity: 1, 
-            scale: 1, 
+        visible: {
+            opacity: 1,
+            scale: 1,
             rotateY: 0,
             transition: {
                 duration: 0.6,
@@ -90,11 +110,11 @@ const About: React.FC = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
             {/* Background Elements */}
-            <div 
+            <div
                 className="absolute inset-0 opacity-40"
                 style={{ backgroundImage: `url("${backgroundPattern}")` }}
             />
-            
+
             {/* Floating Elements */}
             <motion.div
                 className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-purple-400 to-violet-500 rounded-full blur-xl opacity-20"
@@ -133,7 +153,7 @@ const About: React.FC = () => {
                 }}
             />
 
-            <motion.div 
+            <motion.div
                 className="relative z-10 max-w-6xl mx-auto px-6 py-16"
                 variants={containerVariants}
                 initial="hidden"
@@ -150,8 +170,8 @@ const About: React.FC = () => {
                         Meet Our Founders
                         <Zap className="w-4 h-4" />
                     </motion.div>
-                    
-                    <motion.h1 
+
+                    <motion.h1
                         className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-purple-800 to-violet-800 bg-clip-text text-transparent"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -159,8 +179,8 @@ const About: React.FC = () => {
                     >
                         Visionaries Behind Innovation
                     </motion.h1>
-                    
-                    <motion.p 
+
+                    <motion.p
                         className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -171,7 +191,7 @@ const About: React.FC = () => {
                 </motion.div>
 
                 {/* Founders Grid */}
-                <motion.div 
+                <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
                     variants={containerVariants}
                 >
@@ -189,11 +209,11 @@ const About: React.FC = () => {
                                 animate="animate"
                                 className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 via-violet-600 to-purple-600 rounded-3xl blur-sm opacity-10 group-hover:opacity-15 transition-opacity duration-500"
                             />
-                            
+
                             {/* Card */}
                             <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-8 shadow-xl">
                                 {/* Profile Image Placeholder */}
-                                <motion.div 
+                                <motion.div
                                     className="relative mb-6 mx-auto"
                                     whileHover={{ scale: 1.1 }}
                                     transition={{ duration: 0.3 }}
@@ -203,7 +223,7 @@ const About: React.FC = () => {
                                             {founder.name.split(' ').map(n => n[0]).join('')}
                                         </span> */}
                                     </Image>
-                                    
+
                                     {/* Role Badge */}
                                     <motion.div
                                         className="absolute -bottom-2 left-1/2 transform -translate-x-1/2"
@@ -218,7 +238,7 @@ const About: React.FC = () => {
                                 </motion.div>
 
                                 {/* Content */}
-                                <motion.div 
+                                <motion.div
                                     className="text-center space-y-4"
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -227,7 +247,7 @@ const About: React.FC = () => {
                                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
                                         {founder.name}
                                     </h3>
-                                    
+
                                     <div className="flex items-center justify-center gap-2 text-gray-600 mb-6">
                                         <Mail className="w-4 h-4 text-purple-500" />
                                         <span className="text-sm">{founder.email}</span>
@@ -235,7 +255,7 @@ const About: React.FC = () => {
 
                                     {/* Bio placeholder */}
                                     <p className="text-gray-600 leading-relaxed mb-6">
-                                        {founder.tag === 'founder' 
+                                        {founder.tag === 'founder'
                                             ? "Passionate about revolutionizing CAD design and electronic innovations. Leading the vision to create cutting-edge solutions that empower creators and engineers worldwide."
                                             : "Driving strategic growth and operational excellence. Focused on building sustainable partnerships and scaling innovative technologies to reach global markets."
                                         }
@@ -243,30 +263,34 @@ const About: React.FC = () => {
 
                                     {/* Social Links Placeholder */}
                                     <div className="flex justify-center gap-4">
-                                        <motion.a
-                                            href="#"
-                                            className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-violet-600 "
-                                            whileHover={{ scale: 1.1, rotate: 5 }}
-                                            whileTap={{ scale: 0.95 }}
+                                        {founder.linkedin &&
+                                            <Link
+                                                key={index + 44}
+                                                href={founder.linkedin}
+                                                target='_blank'>
+                                                <motion.div
+                                                    className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-violet-600 "
+                                                    whileHover={{ scale: 1.1, rotate: 5 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                >
+                                                    <Linkedin className="w-4 h-4" />
+                                                </motion.div>
+                                            </Link>
+                                        }
+                                        <Link
+                                            href={founder.instagram}
+                                            target="_blank"
+                                            key={index + 94}
                                         >
-                                            <Linkedin className="w-4 h-4" />
-                                        </motion.a>
-                                        <motion.a
-                                            href="#"
-                                            className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-violet-600 "
-                                            whileHover={{ scale: 1.1, rotate: -5 }}
-                                            whileTap={{ scale: 0.95 }}
-                                        >
-                                            <Twitter className="w-4 h-4" />
-                                        </motion.a>
-                                        <motion.a
-                                            href="#"
-                                            className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-violet-600 "
-                                            whileHover={{ scale: 1.1, rotate: 5 }}
-                                            whileTap={{ scale: 0.95 }}
-                                        >
-                                            <Github className="w-4 h-4" />
-                                        </motion.a>
+                                            <motion.div
+
+                                                className="w-10 h-10 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:to-violet-600 "
+                                                whileHover={{ scale: 1.1, rotate: -5 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                <Instagram className="w-4 h-4" />
+                                            </motion.div>
+                                        </Link>
                                     </div>
                                 </motion.div>
                             </div>
@@ -275,7 +299,7 @@ const About: React.FC = () => {
                 </motion.div>
 
                 {/* Mission Statement */}
-                <motion.div 
+                <motion.div
                     variants={itemVariants}
                     className="mt-20 text-center"
                 >
@@ -284,7 +308,7 @@ const About: React.FC = () => {
                         whileHover={{ scale: 1.02 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <motion.h2 
+                        <motion.h2
                             className="text-3xl font-bold text-gray-900 mb-6"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -292,7 +316,7 @@ const About: React.FC = () => {
                         >
                             Our Mission
                         </motion.h2>
-                        <motion.p 
+                        <motion.p
                             className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -304,12 +328,13 @@ const About: React.FC = () => {
                 </motion.div>
 
                 {/* Contact CTA */}
-                <motion.div 
+                <motion.div
                     variants={itemVariants}
                     className="mt-16 text-center"
                 >
                     <motion.button
-                        className="bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-4 px-8 rounded-full shadow-lg  flex items-center gap-2 mx-auto"
+                        onClick={handleClick}
+                        className="bg-gradient-to-r cursor-pointer from-purple-600 to-violet-600 hover:from-purple-700 hover:to-violet-700 text-white font-bold py-4 px-8 rounded-full shadow-lg  flex items-center gap-2 mx-auto"
                         whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(139, 92, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
                         initial={{ opacity: 0, y: 20 }}

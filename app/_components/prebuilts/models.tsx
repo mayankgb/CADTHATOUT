@@ -4,7 +4,7 @@ import { Box, CircuitBoard, Code, Bot, Zap } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import {prebuiltCodes, circuits} from "./data"
 import ModelCard from "./modelCard"
-import { newCadModels } from "./newdata"
+import { circuitModels, codeModels, newCadModels } from "./newdata"
 
 const containerVariants  = {
     hidden: { opacity: 0 },
@@ -72,7 +72,7 @@ export default function Models () {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
             >
-              {circuits.map((circuit) => (
+              {circuitModels.map((circuit) => (
                 <ModelCard key={circuit.id} model={circuit} icon={Zap} />
               ))}
             </motion.div>
@@ -85,7 +85,7 @@ export default function Models () {
               animate="visible"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
             >
-              {prebuiltCodes.map((code) => (
+              {codeModels.map((code) => (
                 <ModelCard key={code.id} model={code} icon={Code} />
               ))}
             </motion.div>

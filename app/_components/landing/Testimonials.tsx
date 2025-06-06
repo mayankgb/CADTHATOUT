@@ -54,15 +54,15 @@ export default function TestimonialSection() {
             <TestimonialCard
               quote="Got my robot gripper in 2 days, with perfect CAD design!"
               author="Aayush S."
-              role="CAD Designer"
-              company="CADTHATOUT"
+              role="student from"
+              company="IITG"
               rating={5}
             />
             <TestimonialCard
               quote="Pre-built code saved my college project deadline."
               author="Aman S."
-              role="CAD Engineer"
-              company="University of XYZ"
+              role="student at "
+              company="IIITN"
               rating={4.5}
             />
           </motion.div>

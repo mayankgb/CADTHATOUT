@@ -30,8 +30,8 @@ const CustomDevelopmentPage: React.FC = () => {
 
   const serviceOptions: ServiceOption[] = [
     { id: 'cad', label: 'CAD Design', icon: Wrench, color: 'from-purple-400 to-purple-500' },
-    { id: 'circuits', label: 'Circuit Design', icon: Cpu, color: 'from-purple-400 to-purple-500' },
-    { id: 'prebuilts', label: 'Pre-built Components', icon: Zap, color: 'from-purple-400 to-purple-500' },
+    { id: 'Circuit Design or Codes', label: 'Circuit Design or Codes', icon: Cpu, color: 'from-purple-400 to-purple-500' },
+    { id: 'CAE Analysis', label: 'CAE Analysis', icon: Zap, color: 'from-purple-400 to-purple-500' },
   ];
 
   const handleServiceToggle = (serviceId: string) => {

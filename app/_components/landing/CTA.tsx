@@ -75,7 +75,7 @@ export function CTA() {
               whileHover="hover"
               whileTap="tap"
               className="bg-white text-[var(--cta-primary)] px-8 py-4 rounded-full font-semibold text-lg"
-              onClick={() => router.push("/pre-built-shop")}
+              onClick={() => router.push("/request-custom")}
             >
               Get Started Now
             </motion.button>
