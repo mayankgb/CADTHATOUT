@@ -21,7 +21,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { getAllOrder, updateStatus } from '../lib/server-actions/actions';
 import { toast } from 'sonner';
-import { $Enums } from '@/generated/prisma';
+import { $Enums } from '@prisma/client';
 
 interface CustomOrderData {
     orderDate: Date;
