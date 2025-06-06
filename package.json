@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.9.0",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.9.0",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@types/jsonwebtoken": "^9.0.9",
