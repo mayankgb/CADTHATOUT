@@ -49,7 +49,7 @@ const Admin: React.FC = () => {
     useEffect(() => {
 
         async function fetchData() {
-            const toastId = toast.loading("")
+            const toastId = toast.loading("...loading")
             const response = await getAllOrder()
 
             if (response.status > 400) {
@@ -86,6 +86,8 @@ const Admin: React.FC = () => {
             setPrebuiltOrders((prev) => (
                 prebuiltOrderData?.length ? prebuiltOrderData : []
             ))
+            toast.dismiss(toastId)
+            toast.success("success")
 
             return
         }
