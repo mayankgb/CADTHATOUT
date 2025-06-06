@@ -28,10 +28,10 @@ export async function middleware(req: NextRequest) {
         }
         if (pathname.startsWith("/signin")) {
             console.log("adasdasda")
-            return NextResponse.redirect("https://cadthatout.vercel.app/pre-built-shop")
+            return NextResponse.redirect("https://localhost:3000/pre-built-shop")
         }
         if(pathname.startsWith("/admin") && token.role !== "ADMIN" ) {
-            return NextResponse.redirect("https://cadthatout.vercel.app/pre-built-shop")
+            return NextResponse.redirect("https://localhost:3000/pre-built-shop")
         }
         return NextResponse.next()
     }

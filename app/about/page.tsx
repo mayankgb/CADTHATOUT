@@ -23,7 +23,7 @@ const data: Founder[] = [{
     name: "Anshika Agarwal",
     tag: "co-founder",
     imageUrl:anshika ,
-    email: "anshik@gmail.com"
+    email: "anshika@gmail.com"
 }];
 
 const About: React.FC = () => {
