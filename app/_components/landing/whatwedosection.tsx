@@ -4,7 +4,6 @@ import { motion, useAnimation, useInView, Variants } from "motion/react"
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-
 const fadeInUpVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -17,11 +16,8 @@ const fadeInUpVariants: Variants = {
     }
 };
 
-
 const staggerContainer: Variants = {
-    // hidden: { opacity: 0 },
     visible: {
-        // opacity: 1,
         transition: {
             staggerChildren: 0.2,
             delayChildren: 0.3,
@@ -47,9 +43,6 @@ const itemVariants: Variants = {
         filter: 'blur(0px)',
         transition: {
             duration: 0.3,
-            // delay: 0.4
-            // ease: [0,1,0.3,0.4]
-            // ease: "backIn",
         },
     },
 };
@@ -62,18 +55,16 @@ interface ServiceCardProps {
 }
 
 export function WhatWeDo() {
-    const router = useRouter()
+    const router = useRouter();
     return (
-
         <AnimatedSection className="py-20 px-6 bg-white">
             <div className="container mx-auto">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true}}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl font-bold text-center mb-16"
-                    style={{ color: 'var(--dark-primary)' }}
+                    className="text-4xl font-bold text-center mb-16 text-[#1f1926]"
                 >
                     What We Do
                 </motion.h2>
@@ -83,7 +74,7 @@ export function WhatWeDo() {
                     variants={staggerContainer}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true}}
+                    viewport={{ once: true }}
                 >
                     <ServiceCard
                         icon={Square}
@@ -116,29 +107,24 @@ export function WhatWeDo() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="text-center mt-12"
-                    viewport={{ once: true}}
+                    viewport={{ once: true }}
                 >
                     <motion.button
-                    onClick={() => router.push("/pre-built-shop")} 
+                        onClick={() => router.push("/pre-built-shop")}
                         whileHover={{
                             scale: 1.05,
-                            backgroundColor: 'var(--cta-primary)',
-                            color: 'white'
+                            backgroundColor: "#6366f1", // Indigo-500
+                            color: "#ffffff"
                         }}
                         whileTap={{ scale: 0.95 }}
-                        className="border-2 px-8 py-3 rounded-full font-semibold "
-                        style={{
-                            borderColor: 'var(--cta-primary)',
-                            color: 'var(--cta-primary)'
-                        }}
+                        className="border-2 px-8 py-3 rounded-full font-semibold text-[#6366f1] border-[#6366f1]"
                     >
                         Learn More
                     </motion.button>
                 </motion.div>
             </div>
         </AnimatedSection>
-
-    )
+    );
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className = "" }) => {
@@ -159,13 +145,12 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({ children, className =
             initial="hidden"
             variants={fadeInUpVariants}
             className={className}
-            viewport={{ once: true}}
+            viewport={{ once: true }}
         >
             {children}
         </motion.div>
     );
 };
-
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, description }) => {
     return (
@@ -178,18 +163,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon: Icon, title, descriptio
                     ease: [0.22, 1, 0.36, 1]
                 }
             }}
-            viewport={{once: true}}
-            className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl "
+            viewport={{ once: true }}
+            className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl"
         >
             <motion.div
-                className="w-16 h-16 rounded-lg flex items-center justify-center mb-6"
-                style={{ backgroundColor: 'var(--light-accent)' }}
+                className="w-16 h-16 rounded-lg flex items-center justify-center mb-6 bg-gray-100"
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
             >
-                <Icon className="w-8 h-8" style={{ color: 'var(--secondary-primary)' }} />
+                <Icon className="w-8 h-8 text-[#a855f7]" />
             </motion.div>
-            <h3 className="text-xl font-semibold mb-3" style={{ color: 'var(--dark-primary)' }}>{title}</h3>
+            <h3 className="text-xl font-semibold mb-3 text-[#1f1926]">{title}</h3>
             <p className="text-gray-600 leading-relaxed">{description}</p>
         </motion.div>
     );
