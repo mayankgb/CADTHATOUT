@@ -37,7 +37,7 @@ export function CTA() {
   const router = useRouter();
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)]">
+    <section className="py-20 px-6 bg-gradient-to-br from-[#6315e3] to-[#9d88b2]">
       <div className="container mx-auto text-center">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -68,7 +68,7 @@ export function CTA() {
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
-            className="bg-white text-[var(--cta-primary)] px-8 py-4 rounded-full font-semibold text-lg"
+            className="bg-white text-[#6315e3] px-8 py-4 rounded-full font-semibold text-lg"
             onClick={() => router.push("/request-custom")}
           >
             Get Started Now
