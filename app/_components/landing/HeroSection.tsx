@@ -49,7 +49,7 @@ export function Hero() {
   const router = useRouter()
 
   return (
-    <section className={`pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-16 md:pb-20 px-4 sm:px-6 min-h-fit sm:min-h-screen relative ${inter.className}`}>
+    <section className={`pt-20 sm:pt-24 md:pt-32 pb-8  md:pb-20 px-4 sm:px-6 h-fit lg:min-h-screen relative ${inter.className}`}>
       <div className="absolute h-full inset-0 bg-gradient-to-br from-[var(--gradient-start)]/10 to-[var(--gradient-end)]/10" />
       <div className="mt-8 sm:mt-5 flex flex-col h-full items-center justify-center text-center relative">
         <motion.h1

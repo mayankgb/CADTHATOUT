@@ -2,7 +2,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Box, CircuitBoard, Code, Bot, Zap } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
-import {prebuiltCodes, circuits} from "./data"
 import ModelCard from "./modelCard"
 import { circuitModels, codeModels, newCadModels } from "./newdata"
 
