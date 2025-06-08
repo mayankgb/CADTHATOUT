@@ -5,8 +5,7 @@ import Link from "next/link"
 import React from "react"
 
 const footerItems = [
-  { title: "About Us", href: "/about" },
-  { title: "Terms & conditions!", href: "#" }
+  { title: "About Us", href: "/about" }
 ];
 
 export default function Footer() {
