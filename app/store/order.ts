@@ -131,3 +131,24 @@ export const useFilterCustomOrderData = create<filtersCustomOrder>((set) => ({
             return { filterCustomOrders: updateOrders}
         })
 }))
+
+
+interface PopUp {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}
+
+export const popUp = create<PopUp>((set) => ({
+    isOpen: false,
+    setIsOpen: (isOpen) => set({ isOpen }),
+}));
+
+interface NewServiceName {
+    serviceName: string,
+    setServiceName: (serviceName: string) => void
+}
+
+export const newServiceName = create<NewServiceName>((set) => ({
+    serviceName: "",
+    setServiceName: (serviceName: string) => set({serviceName})
+}))

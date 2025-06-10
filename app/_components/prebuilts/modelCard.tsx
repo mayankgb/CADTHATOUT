@@ -1,6 +1,7 @@
 'use client'
 
 import { prebuiltOrders } from "@/app/lib/server-actions/actions";
+import { newServiceName, popUp } from "@/app/store/order";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
@@ -46,21 +47,15 @@ interface ModelCardProps {
 
 export default function ModelCard({ model, icon: Icon }: ModelCardProps) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+  const { setIsOpen } = popUp()
+  const { setServiceName }  = newServiceName() 
 
 
   const handleClick = async (serviceName: string) => {
+    setServiceName(serviceName)
+    setIsOpen(true)
 
-    const loading = toast.loading("loading ...")
-    const response = await prebuiltOrders(serviceName)
-
-
-    if (response.status > 400) {
-      toast.error(response.message)
-      toast.dismiss(loading)
-      return
-    }
-    toast.success("order placed successfully our expert team will reach out you")
-    toast.dismiss(loading)
+    
   }
 
   return (
