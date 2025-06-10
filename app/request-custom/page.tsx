@@ -48,12 +48,15 @@ const CustomDevelopmentPage: React.FC = () => {
     if (!formData.description || !formData.services.length || !formData.email) {
       if (!formData.description) {
         toast.error("please provide a valid descriptions")
+        setIsSubmitted(false)
         return
       }else if (!formData.services.length) {
         toast.error("please select atleast one services")
+        setIsSubmitted(false)
         return
       }else if (!formData.email) {
         toast.error("please provide email")
+        setIsSubmitted(false)
         return
       }
       toast.error("somthing went wrong")
