@@ -2,25 +2,32 @@ import { prebuiltOrders } from "@/app/lib/server-actions/actions"
 import { newServiceName, popUp } from "@/app/store/order"
 import { toast } from "sonner"
 import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 
 export function ConfirmationOrder() {
     const { setIsOpen } = popUp()
     const { setServiceName, serviceName } = newServiceName()
+    const [isDisable, setIsDisable] = useState<boolean>(false)
 
     const createOrder = async () => {
 
         const loading = toast.loading("loading ...")
         const response = await prebuiltOrders(serviceName)
+        setIsDisable(true)
 
         if (response.status > 400) {
             toast.error(response.message)
             toast.dismiss(loading)
+            setIsOpen(false)
+            setServiceName("")
+            setIsDisable(false)
             return
         }
         toast.success("order placed successfully our expert team will reach out you")
         toast.dismiss(loading)
         setIsOpen(false)
         setServiceName("")
+        setIsDisable(false)
     }
 
     return (
@@ -46,6 +53,7 @@ export function ConfirmationOrder() {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={() => setIsOpen(false)}
+                            disabled={isDisable}
                             className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium"
                         >
                             Cancel
@@ -54,6 +62,7 @@ export function ConfirmationOrder() {
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             onClick={createOrder}
+                            disabled={isDisable}
                             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
                         >
                             Confirm Order
