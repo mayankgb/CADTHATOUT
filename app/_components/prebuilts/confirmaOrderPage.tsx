@@ -75,9 +75,9 @@ export function ConfirmationOrder() {
                     }}
                 >
                     {/* Decorative elements */}
-                    <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full opacity-60"></div>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full opacity-40"></div>
-                    <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-br from-green-500 to-blue-600 rounded-full opacity-40"></div>
+                    <div className="absolute -top-1 -left-1 w-4 h-4 bg-gradient-to-br from-gray-800 to-black rounded-full opacity-60"></div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full opacity-40"></div>
+                    <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-gradient-to-br from-gray-800 to-black rounded-full opacity-40"></div>
                     
                     {/* Header */}
                     <div className="text-center mb-8">
@@ -85,7 +85,7 @@ export function ConfirmationOrder() {
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: 0.1 }}
-                            className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg"
+                            className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-gray-800 via-gray-900 to-black rounded-2xl flex items-center justify-center shadow-lg"
                         >
                             <svg 
                                 className="w-8 h-8 text-white" 
@@ -106,7 +106,7 @@ export function ConfirmationOrder() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-2xl font-bold bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 bg-clip-text text-transparent mb-2"
+                            className="text-2xl font-bold bg-gradient-to-r from-gray-800 via-gray-900 to-black bg-clip-text text-transparent mb-2"
                         >
                             Confirm Your Order
                         </motion.h2>
@@ -115,7 +115,7 @@ export function ConfirmationOrder() {
                             initial={{ scaleX: 0 }}
                             animate={{ scaleX: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
-                            className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"
+                            className="w-12 h-0.5 bg-gradient-to-r from-gray-800 to-black mx-auto rounded-full"
                         ></motion.div>
                     </div>
 
@@ -126,10 +126,10 @@ export function ConfirmationOrder() {
                         transition={{ delay: 0.4 }}
                         className="mb-8"
                     >
-                        <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-4 border border-blue-100/50">
+                        <div className="bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50 rounded-xl p-4 border border-gray-200/50">
                             <p className="text-gray-700 text-center leading-relaxed">
                                 Are you ready to proceed with your order for{' '}
-                                <span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                <span className="font-semibold bg-gradient-to-r from-gray-800 to-black bg-clip-text text-transparent">
                                     {serviceName}
                                 </span>
                                 ?
@@ -175,7 +175,7 @@ export function ConfirmationOrder() {
                             className={`flex-1 px-6 py-3 rounded-xl font-medium relative overflow-hidden ${
                                 isDisable
                                     ? 'bg-gray-400 text-white cursor-not-allowed'
-                                    : 'bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white hover:from-blue-700 hover:via-blue-800 hover:to-purple-700 shadow-lg'
+                                    : 'bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white hover:from-gray-900 hover:via-black hover:to-gray-900 shadow-lg'
                             }`}
                         >
                             {!isDisable && (
