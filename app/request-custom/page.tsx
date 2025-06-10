@@ -45,8 +45,19 @@ const CustomDevelopmentPage: React.FC = () => {
 
   const handleSubmit = async () => {
     setIsSubmitted(true);
-    if (!formData.description && !formData.services.length && !formData.email) {
-      toast.error("invalid inputs")
+    if (!formData.description || !formData.services.length || !formData.email) {
+      if (!formData.description) {
+        toast.error("please provide a valid descriptions")
+        return
+      }else if (!formData.services.length) {
+        toast.error("please select atleast one services")
+        return
+      }else if (!formData.email) {
+        toast.error("please provide email")
+        return
+      }
+      toast.error("somthing went wrong")
+
       return
     }
     const response = await createCustomOrder({
