@@ -23,7 +23,7 @@ export default function Stats() {
           <div className="text-xs sm:text-sm text-gray-600">Code Libraries</div>
         </div>
         <div className="text-center p-3 sm:p-4 bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="text-xl sm:text-2xl font-bold text-gray-800">50K+</div>
+          <div className="text-xl sm:text-2xl font-bold text-gray-800">--</div>
           <div className="text-xs sm:text-sm text-gray-600">Downloads</div>
         </div>
       </motion.div>
